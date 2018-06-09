@@ -1,3 +1,165 @@
 * {
-    background-color: black;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 2rem;
+}
+
+.header {
+    height: 40vh;
+    
+    background-image: linear-gradient( #00000052, #02000052 ), url(./img/header_background_wide.jpg);   
+
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.header__mainbox {
+    width: 50%;
+    height: 25vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(219, 217, 217);
+    text-align: center;
+    border-radius: 1rem;
+
+}
+
+.header__title {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    letter-spacing: 1rem;
+    color: white;
+    text-shadow: 0 0 10px 5px rgb(0, 0, 0);    
+}
+
+.header__mainbox__obliczenia-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.kwota {
+    width: 30%;
+    height: 5rem;
+    border: .2rem solid white;
+    font-size: 2rem;
+    display: flex;
+}
+
+.kwota p {
+    margin: auto;
+    cursor: default;
+}
+
+.plus {
+    background-color: rgb(109, 238, 58);
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 2px rgb(0, 0, 0);
+}
+
+.minus {
+    background-color: rgb(238, 58, 58);
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 2px rgb(0, 0, 0);
+}
+
+/* Ponizej */
+
+.section-wprowadzanie  {
+    border-top: 4px groove rgb(211, 209, 121);
+    padding: 2rem 0;
+    background-color: #491e1edc;
+}
+
+.wprowadzanie-box {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+}
+.wprowadzanie, .wprowadzanie:link {
+    border:none;
+    display: block;
+    background-color: rgb(255, 255, 255);
+    font-size: 2rem;
+    border-radius: 0 100px 100px 0;
+    padding: 1rem 2rem;
+    color: rgb(1, 0, 66);
+}
+.wprowadzanie:hover {
+    background-color: rgb(206, 205, 205);
+}
+.wprowadzanie:focus{
+    outline: none;
+}
+
+.wprowadzanie-btn-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.wprowadzanie-btn {
+    font-size: 2rem;
+    padding: 0 2rem;
+}
+
+
+/* DOL STRONY */
+
+.section-dol {
+    border-top: 4px groove rgb(211, 209, 121);    
+    background-color: #02000052;
+    min-height: 30vh;
+    display: flex;
+}
+
+.tabela-flex {
+    width: 75%;
+    display: flex; 
+    justify-content: space-between;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2rem;
+}
+.tabela {
+width: 40%;
+}
+
+.przychody {
+}
+
+.wydatki {
+}
+.tabela-title {
+    font-size: 3rem;
+    margin: 0 auto;
+    width: 100% ;
+    border-bottom: 2px solid rgb(1, 0, 66);
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+.wydatki {
+    color: #960000;
+}
+.przychody {
+    color: #0c8b01;
+}
+
+li {
+list-style-type: none;
+border-bottom: 1px solid gray;
 }
