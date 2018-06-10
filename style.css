@@ -91,7 +91,7 @@ body {
     margin: 0 auto;
     justify-content: center;
 }
-.wprowadzanie, .wprowadzanie:link {
+.wprowadzanie-kwota, .wprowadzanie-kwota:link {
     border:none;
     display: block;
     background-color: rgb(255, 255, 255);
@@ -100,16 +100,25 @@ body {
     padding: 1rem 2rem;
     color: rgb(1, 0, 66);
 }
-.wprowadzanie:hover {
+.wprowadzanie-kwota:hover {
     background-color: rgb(206, 205, 205);
 }
-.wprowadzanie:focus{
+.wprowadzanie-kwota:focus{
     outline: none;
 }
 
+.wprowadzanie-opis {
+    order: 0;
+    font-size: 2rem;
+    flex: 2;
+}
+
 .wprowadzanie-btn-box {
+    margin-left: 1rem;
     display: flex;
     flex-direction: column;
+    order: 3;
+    flex: .5;
 }
 
 .wprowadzanie-btn {
@@ -121,8 +130,9 @@ body {
 /* DOL STRONY */
 
 .section-dol {
+    padding-top: 2rem;
     border-top: 4px groove rgb(211, 209, 121);    
-    background-color: #02000052;
+    background-color: #d9e3ff;
     min-height: 30vh;
     display: flex;
 }
