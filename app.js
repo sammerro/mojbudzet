@@ -77,7 +77,7 @@ if (kwota != '' && opis != '') {
         deleteBtn.classList.remove('aktywny');
     });
     deleteBtn.addEventListener('click', function() {
-        li.style.display = "none";
+        li.remove();
     });
  }
 
