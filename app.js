@@ -31,16 +31,19 @@ if (kwota != '' && opis != '') {
 }
 
  });
-
- 
+/* BUDZET */
+ function Budzet() {
+     
+ }
 
  /* TRANSAKCJE */
  function Transakcja(kwota, opis, czyPlus = true) {
      this.kwota = kwota;
      this.opis = opis;
      this.czyPlus = czyPlus;
+     Transakcja.numInstances = (Transakcja.numInstances || 0) + 1;
+     this.id = Transakcja.numInstances;
  }
-
 
  Transakcja.prototype.dodajDoListy = function() {
 
@@ -48,11 +51,15 @@ if (kwota != '' && opis != '') {
      const opis = document.createElement("span");
      const kwota = document.createElement("span");
      const deleteBtn = document.createElement("span");
+     const spanId = document.createElement("span");
 
 
      opis.textContent = this.opis ;
      kwota.textContent = this.kwota;
      deleteBtn.innerHTML = '<p>&#x274C</p>';
+     // id dla usuwania z budzetu
+     spanId.innerHTML = this.id;
+     //spanId.style.display = "none";
 
      opis.classList.add("lista-span-opis");
      kwota.classList.add("lista-span-kwota");
@@ -61,6 +68,8 @@ if (kwota != '' && opis != '') {
      li.appendChild(kwota);    
      li.appendChild(opis);
      li.appendChild(deleteBtn);
+     li.appendChild(spanId);
+
      
 
     
@@ -79,9 +88,14 @@ if (kwota != '' && opis != '') {
     deleteBtn.addEventListener('click', function() {
         li.remove();
     });
+    console.log(Transakcja.numInstances);
+    console.log(this.id);
  }
 
- trans1 = new Transakcja(1000 , "czynsz");
+
+
+
+/*  trans1 = new Transakcja(1000 , "czynsz");
  trans2 = new Transakcja(2000 , "czynsz", false);
 
  
@@ -89,7 +103,7 @@ if (kwota != '' && opis != '') {
  trans1.dodajDoListy();
  trans1.dodajDoListy();
  trans2.dodajDoListy();
- trans2.dodajDoListy();
+ trans2.dodajDoListy(); */
  /* console.log('LALALALAALALAL');
  /* console.log('LALALALAALALAL');
  /* console.log('LALALALAALALAL');
