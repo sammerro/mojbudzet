@@ -11,6 +11,7 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 2rem;
+    cursor: default;
 }
 
 .header {
@@ -178,18 +179,22 @@ li {
     justify-content: space-between;
     height: 4rem;
     align-items: center;
-
+    text-align:left;
+    min-height: fit-content;
 }
 
 .lista-span-kwota {
-    align-self: left;
     margin-right: 1rem;
+    flex: 1;
 }
 
 .lista-span-kwota::after {
     content: " zł";
 }
 
+.lista-span-opis {
+    flex: 2;
+}
 .lista-span-opis::after,
 .lista-span-opis::before {
     content: "\"";
@@ -204,14 +209,15 @@ li {
     cursor: pointer;
     border: 1px solid rgb(0, 0, 0);
     color: rgb(211, 211, 211);
-    visibility: hidden;
+    opacity: 0;
     background-color: #8d38388e;
     border-radius: 100px;
+    transition: all .3s ease;
 }
 .lista-span-delete p {
     margin: auto;
 }
 
 .aktywny {
-    visibility: visible;
+    opacity: 1;
 }

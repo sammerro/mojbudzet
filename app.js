@@ -1,5 +1,40 @@
  
+ /* Przepisywanie transakcji do listy */
+ const przychodBtn = document.getElementById('przychod');
+ const wydatekBtn = document.getElementById('wydatek');
+ const inputKwota = document.querySelector('.wprowadzanie-kwota');
+ const inputOpis = document.querySelector('.wprowadzanie-opis');
  
+
+ przychodBtn.addEventListener('click', function () {
+    let kwota = inputKwota.value;
+    let opis = inputOpis.value;
+if (kwota != '' && opis != '') {
+    let trans = new Transakcja(kwota,opis, true);
+    trans.dodajDoListy();
+
+    inputKwota.value ='' ;
+    inputOpis.value ='' ;
+}
+
+ });
+
+ wydatekBtn.addEventListener('click', function () {
+    let kwota = inputKwota.value;
+    let opis = inputOpis.value;
+if (kwota != '' && opis != '') {
+    let trans = new Transakcja(kwota,opis, false);
+    trans.dodajDoListy();
+
+    inputKwota.value ='' ;
+    inputOpis.value ='' ;
+}
+
+ });
+
+ 
+
+ /* TRANSAKCJE */
  function Transakcja(kwota, opis, czyPlus = true) {
      this.kwota = kwota;
      this.opis = opis;
@@ -8,7 +43,6 @@
 
 
  Transakcja.prototype.dodajDoListy = function() {
-
 
      const li = document.createElement("li");
      const opis = document.createElement("span");
@@ -29,7 +63,7 @@
      li.appendChild(deleteBtn);
      
 
-     
+    
      if (this.czyPlus) {
         document.getElementById('przychody-ul').appendChild(li);
      } else {
@@ -45,8 +79,6 @@
     deleteBtn.addEventListener('click', function() {
         li.style.display = "none";
     });
-
-
  }
 
  trans1 = new Transakcja(1000 , "czynsz");
