@@ -51,15 +51,14 @@ if (kwota != '' && opis != '') {
      const opis = document.createElement("span");
      const kwota = document.createElement("span");
      const deleteBtn = document.createElement("span");
-     const spanId = document.createElement("span");
 
+     //Dodanie znacznika w postaci klasy do elementu li:
+     li.classList.add('id-'+this.id);
 
      opis.textContent = this.opis ;
      kwota.textContent = this.kwota;
      deleteBtn.innerHTML = '<p>&#x274C</p>';
-     // id dla usuwania z budzetu
-     spanId.innerHTML = this.id;
-     //spanId.style.display = "none";
+
 
      opis.classList.add("lista-span-opis");
      kwota.classList.add("lista-span-kwota");
@@ -68,10 +67,6 @@ if (kwota != '' && opis != '') {
      li.appendChild(kwota);    
      li.appendChild(opis);
      li.appendChild(deleteBtn);
-     li.appendChild(spanId);
-
-     
-
     
      if (this.czyPlus) {
         document.getElementById('przychody-ul').appendChild(li);
