@@ -37,8 +37,8 @@ body {
 
 .header__title {
     font-size: 4rem;
+    font-weight: 500;
     margin-bottom: 4rem;
-    letter-spacing: 1rem;
     color: white;
     text-shadow: 0 0 10px 5px rgb(0, 0, 0);
 }
@@ -97,12 +97,12 @@ body {
     display: block;
     background-color: rgb(255, 255, 255);
     font-size: 2rem;
-    border-radius: 0 100px 100px 0;
     padding: 1rem 2rem;
     color: rgb(1, 0, 66);
+    flex: 1fr;
 }
 
-.wprowadzanie-kwota:hover {
+.wprowadzanie-kwota:hover, .wprowadzanie-opis:hover {
     background-color: rgb(206, 205, 205);
 }
 
@@ -111,17 +111,20 @@ body {
 }
 
 .wprowadzanie-opis {
+    outline: none;
     order: 0;
     font-size: 2rem;
-    flex: 2;
+    flex: 3fr;
+    padding: 1rem 2rem;  
+    border: none; 
+    border-right: .1rem solid gray;
 }
 
 .wprowadzanie-btn-box {
-    margin-left: 1rem;
     display: flex;
     flex-direction: column;
     order: 3;
-    flex: .5;
+    flex: 1fr;
 }
 
 .wprowadzanie-btn {
