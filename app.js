@@ -6,6 +6,9 @@
  const inputOpis = document.querySelector('.wprowadzanie-opis');
  
 
+const budzet = new Budzet();
+
+
  przychodBtn.addEventListener('click', function () {
     let kwota = inputKwota.value;
     let opis = inputOpis.value;
@@ -33,7 +36,27 @@ if (kwota != '' && opis != '') {
  });
 /* BUDZET */
  function Budzet() {
-     
+     this.transakcje = new Map();
+ }
+
+ Budzet.prototype.dodajTransakcje = function(trans) {
+    this.transakcje.set(trans.id, trans);
+ }
+
+ Budzet.prototype.usunTransakcje = function(id) {
+     this.transakcje.delete(id);
+ }
+
+ Budzet.prototype.bilans = function() {
+    function podsumuj(value, key, map) {
+        (value.czyPlus === true)? przychody += value: wydatki += value;
+      }
+      let przychody = 0;
+      let wydatki = 0;
+      
+    this.transakcje.forEach(podsumuj);
+
+    return new Map([['prz', przychody],['wyd', wydatki],['bil', przychody - wydatki]]);
  }
 
  /* TRANSAKCJE */
@@ -73,20 +96,27 @@ if (kwota != '' && opis != '') {
      } else {
         document.getElementById('wydatki-ul').appendChild(li);
      }
-
+     budzet.dodajTransakcje(this);
+     console.log(budzet.transakcje);
+     
      li.addEventListener("mouseover", function () {
-         deleteBtn.classList.add('aktywny');
+         deleteBtn.classList.add('aktywny');         
      });
      li.addEventListener("mouseleave", function () {
         deleteBtn.classList.remove('aktywny');
     });
+    //pomocnicze _this
+    let _this = this;
     deleteBtn.addEventListener('click', function() {
+        budzet.usunTransakcje(_this.id);
+        console.log(budzet.transakcje);
         li.remove();
     });
     console.log(Transakcja.numInstances);
     console.log(this.id);
  }
 
+ 
 
 
 
