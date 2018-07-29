@@ -36,6 +36,8 @@ body {
     cursor: default;
 }
 
+/* HEADER */
+/* ************************************************* */
 .header {
     text-align: center;
     height: 60vh;
@@ -43,8 +45,6 @@ body {
     background-size: cover;
     background-position: center;
     display: flex;
-
-
 }
 
 .header__container {
@@ -52,9 +52,15 @@ body {
     height: 80%;
     width: 80%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-around;
 }
+@media (max-width: 600px) {
+    .header__container {
+        width: 95%;
+    }
+}
+
 
 .kwota {
     align-self: flex-start;
@@ -95,7 +101,7 @@ body {
     margin: 0 2rem;
     border-radius: .2rem;
     border: .2rem solid white; */
-/*     flex: 0 0 30%; */
+    flex: 0 0 30%;
 }
 
 .header__textbox h2, .header__textbox h1 {
@@ -103,19 +109,18 @@ body {
 }
 
 
-
-
-/* Ponizej */
+/* WPROWADZANIE DANYCH*/
+/*  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
 
 .section-wprowadzanie {
-    border-top: 4px groove rgb(211, 209, 121);
+/*     border-top: 1px solid rgb(255, 255, 255); */
     padding: 2rem 0;
     background-color: #491e1edc;
 }
 
 .wprowadzanie-box {
     display: flex;
-    width: 50%;
+    max-width: 900px;
     margin: 0 auto;
     justify-content: center;
 }
@@ -128,14 +133,14 @@ body {
     font-size: 2rem;
     padding: 1rem 2rem;
     color: rgb(1, 0, 66);
-    flex: 1fr;
+    width: 25%;
 }
 
 .wprowadzanie-kwota:hover, .wprowadzanie-opis:hover {
     background-color: rgb(206, 205, 205);
 }
 
-.wprowadzanie-kwota:focus {
+.wprowadzanie-kwota:hover {
     outline: none;
 }
 
@@ -143,7 +148,7 @@ body {
     outline: none;
     order: 0;
     font-size: 2rem;
-    flex: 3fr;
+    width: 60%;
     padding: 1rem 2rem;  
     border: none; 
     border-right: .1rem solid gray;
@@ -153,26 +158,35 @@ body {
     display: flex;
     flex-direction: column;
     order: 3;
-    flex: 1fr;
+    width: 8%;
 }
 
 .wprowadzanie-btn {
     font-size: 2rem;
     padding: 0 2rem;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+}
+.wprowadzanie-btn p {
+    margin: auto;
+    text-align: center;
 }
 
-/* DOL STRONY */
+
+/* PRZYCHODY WYDATKI */
+/* ****************************************************************** */
 
 .section-dol {
     padding-top: 2rem;
-    border-top: 4px groove rgb(211, 209, 121);
-    background-color: #d9e3ff;
-    min-height: 30vh;
+    background-image:linear-gradient(to right bottom, rgb(255, 255, 255), rgb(224, 224, 224));
+    min-height: 27.7vh;
     display: flex;
+    font-weight: 200;
 }
 
 .tabela-flex {
-    width: 75%;
+    min-width: 95vw;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -181,7 +195,7 @@ body {
 }
 
 .tabela {
-    width: 40%;
+    width: 48%;
 }
 
 .przychody {}
