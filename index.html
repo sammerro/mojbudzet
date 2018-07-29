@@ -14,21 +14,26 @@
 
     <header class="header">
 
+        <div class="header__container">
 
-        <section class="header__mainbox">
-            <h2>Bilans w tym miesiącu to: </h2>
-            <h1 id="bilans" class="header__title"> - </h1>
-
-            <div class="header__mainbox__obliczenia-flex">
-                <div class="kwota plus">
-                    <p id="sumaPrzychodow">Suma Przychodów</p>
+            <div class="kwota plus">
+                <span class="kwota__caption">Przychody:</span>
+                    <p id="sumaPrzychodow">---</p>
                 </div>
-                <div class="kwota minus">
-                    <p id="sumaWydatkow">Suma Wydatków</p>
-                </div>
-            </div>
 
-        </section>
+         <div class="header__textbox">
+            <h2>Bilans: </h2>
+            <h1 id="bilans" class="header__title"> --- </h1>
+         </div>
+
+            <div class="kwota minus">
+                <span class="kwota__caption">Wydatki:</span>
+                    <p id="sumaWydatkow">---</p>
+            </div>   
+        </div>
+
+
+
     </header>
 
 

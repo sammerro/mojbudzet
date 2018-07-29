@@ -8,73 +8,102 @@ html {
     font-size: 10px;
 }
 
+@media (max-width: 1200px) {
+    html {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 1000px) {
+    html {
+        font-size: 8px;
+    }
+}
+@media (max-width: 780px) {
+    html {
+        font-size: 7px;
+    }
+}
+@media (max-width: 600px) {
+    html {
+        font-size: 6px;
+    }
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
-    margin: 2rem;
+/*     margin: 2rem; */
     cursor: default;
 }
 
 .header {
-    height: 40vh;
-    background-image: linear-gradient( #00000052, #02000052), url(./img/header_background_wide.jpg);
+    text-align: center;
+    height: 60vh;
+    background-image: linear-gradient( #8b000073, #00185852), url(./img/header_background_wide.jpg);
     background-size: cover;
     background-position: center;
-    position: relative;
-}
-
-.header__mainbox {
-    width: 50%;
-    height: 25vh;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(219, 217, 217);
-    text-align: center;
-    border-radius: 1rem;
-    font-size: 2rem;
-}
-
-.header__title {
-    font-size: 4rem;
-    font-weight: 500;
-    margin-bottom: 4rem;
-    color: white;
-    text-shadow: 0 0 10px 5px rgb(0, 0, 0);
-}
-
-.header__mainbox__obliczenia-flex {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    margin: 0 auto;
+
+
+}
+
+.header__container {
+    margin: auto;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
 }
 
 .kwota {
-    width: 30%;
-    height: 5rem;
-    border: .2rem solid white;
-    font-size: 2rem;
-    display: flex;
+    align-self: flex-start;
+    color: white;
+    font-size: 3rem;
+    padding: 1rem;
+    box-shadow: 0 0 1rem #d9ffdb;
+    border-radius: 100px;
+    flex: 0 0 20%;
 }
-
-.kwota p {
-    margin: auto;
-    cursor: default;
+@media (max-width: 1000px) {
+    .kwota {
+        flex: 0 0 25%;
+    }
+}
+@media (max-width: 600px) {
+    .kwota {
+        flex: 0 0 35%;
+    }
 }
 
 .plus {
-    background-color: rgb(109, 238, 58);
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 2px rgb(0, 0, 0);
+    background-image: linear-gradient(to bottom, rgba(80, 199, 0, 0.247), rgba(20, 168, 0, 0.644))
 }
 
 .minus {
-    background-color: rgb(238, 58, 58);
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 2px rgb(0, 0, 0);
+    background-image: linear-gradient(to bottom, rgba(199, 0, 0, 0.247), rgba(168, 0, 0, 0.644))
+
 }
+
+.kwota__caption {
+    font-size: .6em;
+}
+.header__textbox {
+    color: white;
+    font-size: 2rem;
+/*     padding: 2rem;
+    margin: 0 2rem;
+    border-radius: .2rem;
+    border: .2rem solid white; */
+/*     flex: 0 0 30%; */
+}
+
+.header__textbox h2, .header__textbox h1 {
+    font-weight: 400;
+}
+
+
+
 
 /* Ponizej */
 
