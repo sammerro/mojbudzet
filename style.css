@@ -40,12 +40,18 @@ body {
 /* ************************************************* */
 .header {
     text-align: center;
-    height: 60vh;
+    height: 50vh;
     background-image: linear-gradient( #8b000073, #00185852), url(./img/header_background_wide.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
 }
+@media (max-width: 500px) {
+    .header {
+        height: 40vh;
+    }
+}
+
 
 .header__container {
     margin: auto;
@@ -88,7 +94,6 @@ body {
 
 .minus {
     background-image: linear-gradient(to bottom, rgba(199, 0, 0, 0.247), rgba(168, 0, 0, 0.644))
-
 }
 
 .kwota__caption {
@@ -117,6 +122,14 @@ body {
     padding: 2rem 0;
     background-color: #491e1edc;
 }
+@media (max-width: 500px) {
+    .section-wprowadzanie {
+        padding: 0;
+        background-color: #fff;
+        border-bottom: 1px solid gray;
+    }
+}
+
 
 .wprowadzanie-box {
     display: flex;
@@ -143,7 +156,7 @@ body {
     font-size: 2rem;
     padding: 1rem 2rem;
     color: rgb(1, 0, 66);
-    width: 25%;
+    width: 30%;
     transition: all .1s ease-in;
 }
 
@@ -162,9 +175,14 @@ body {
     width: 8%;
 }
 
+@media (max-width: 500px) {
+    .wprowadzanie-btn-box {
+        width: 10%;
+    }
+}
+
 .wprowadzanie-btn {
     font-size: 2rem;
-    padding: 0 2rem;
     outline: none;
     cursor: pointer;
     display: flex;
@@ -181,10 +199,17 @@ body {
 .section-dol {
     padding-top: 2rem;
     background-image:linear-gradient(to right bottom, rgb(255, 255, 255), rgb(224, 224, 224));
-    min-height: 27.7vh;
+    min-height: 37.7vh;
     display: flex;
     font-weight: 300;
 }
+@media (max-width: 500px) {
+    .section-dol {
+        min-height: 59.5vh;
+        padding-top: 3rem;
+    }
+}
+
 
 .tabela-flex {
     min-width: 95vw;
@@ -194,7 +219,11 @@ body {
     text-align: center;
     font-size: 2rem;
 }
-
+@media (max-width: 500px) {
+    .tabela-flex {
+        min-width: 99vw;
+    }
+}
 .tabela {
     width: 48%;
 }
@@ -204,11 +233,10 @@ body {
 .wydatki {}
 
 .tabela-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin: 0 auto;
     width: 100%;
-    border-bottom: 2px solid rgb(1, 0, 66);
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
 .wydatki {
@@ -222,12 +250,13 @@ body {
 li {
     display: flex;
     list-style-type: none;
-    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
     justify-content: space-between;
     height: 4rem;
     align-items: center;
     text-align:left;
     min-height: fit-content;
+    font-weight: 400;
 }
 
 .lista-span-kwota {
@@ -251,16 +280,22 @@ li {
     height: 3rem;
     width: 3rem;
     cursor: pointer;
-    border: 1px solid rgb(34, 34, 34);
-    color: rgb(34, 34, 34);
+    border: 1px solid rgb(138, 138, 138);
+    color: /* rgb(34, 34, 34); */ rgb(233, 233, 233);
     opacity: 0;
-    background-color: rgba(122, 0, 0, 0.123);
+    background-image: radial-gradient(rgba(255, 0, 0, 0.493),rgba(255, 0, 0, 0.493));
     border-radius: 100px;
-    transition: opacity .2s ease-in,
-    background-color .1s ease-out;
+    transition: opacity .1s ease-in,
+    background-color .1s ease-in;
+}
+@media (max-width: 500px) {
+    .lista-span-delete {
+        height: 2rem;
+        width: 2rem;
+    }
 }
 .lista-span-delete:hover {
-    background-color: rgba(109, 0, 0, 0.233);
+    background-color: rgba(0, 0, 0, 0.842);
 }
 .lista-span-delete p {
     margin: auto;
