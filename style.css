@@ -41,13 +41,14 @@ body {
 .header {
     text-align: center;
     height: 50vh;
-    background-image: linear-gradient( #8b000073, #00185852), url(./img/header_background_wide.jpg);
+    background-image: linear-gradient( #8b000073, #00185852), url(img/header_background_wide.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
 }
 @media (max-width: 500px) {
     .header {
+        background-image: linear-gradient( #8b000073, #00185852), url(img/header_background_wide-mobile.jpg);
         height: 40vh;
     }
 }
