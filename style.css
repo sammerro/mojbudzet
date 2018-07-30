@@ -123,6 +123,14 @@ body {
     padding: 2rem 0;
     background-color: #491e1edc;
 }
+@media (max-width: 500px) {
+    .section-wprowadzanie {
+        padding: 0;
+        background-color: #fff;
+        border-bottom: 1px solid gray;
+    }
+}
+
 
 
 @media (max-width: 700px) {
