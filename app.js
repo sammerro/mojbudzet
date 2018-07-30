@@ -53,8 +53,6 @@
      let kwota = parseFloat(trans.kwota);
      (trans.czyPlus) ? this.calyPrzychod += kwota: this.calyWydatek += kwota;
      this.bilans = this.calyPrzychod - this.calyWydatek;
-     /*     console.log(this.calyPrzychod);
-         console.log(this.calyWydatek); */
          divPrzychod.innerHTML = this.calyPrzychod + ' zł';
          h1Bilans.innerHTML = this.bilans + ' zł';
          divWydatki.innerHTML = this.calyWydatek + ' zł';
@@ -65,28 +63,12 @@
      let kwota = parseFloat(trans.kwota);
      (trans.czyPlus) ? this.calyPrzychod -= kwota: this.calyWydatek -= kwota;
      this.bilans = this.calyPrzychod - this.calyWydatek;
-     /*     console.log(this.calyPrzychod);
-         console.log(this.calyWydatek); */
          divPrzychod.innerHTML = this.calyPrzychod;
          h1Bilans.innerHTML = this.bilans;
          divWydatki.innerHTML = this.calyWydatek;
  }
  // ------------------------------------------------------------
 
-
- /*  Budzet.prototype.bilans = function() {
-     let przychody = 0;
-     let wydatki = 0;
-     //callback do forEach
-     function podsumuj(trans, key, map) {
-         let kwota = parseFloat(trans.kwota);
-         (trans.czyPlus === true)? przychody += kwota: wydatki += kwota;
-       }
-       
-     this.transakcje.forEach(podsumuj);
-
-     return new Map([['prz', przychody],['wyd', wydatki],['bil', przychody - wydatki]]);
-  } */
 
  /* TRANSAKCJE */
  function Transakcja(kwota, opis, czyPlus = true) {
@@ -128,7 +110,7 @@
          document.getElementById('wydatki-ul').appendChild(li);
      }
      budzet.dodajTransakcje(this);
-     /*      console.log(budzet.transakcje); */
+
 
      li.addEventListener("mouseover", function () {
          deleteBtn.classList.add('aktywny');
@@ -138,46 +120,7 @@
      });
      deleteBtn.addEventListener('click', function () {
          budzet.usunTransakcje(_this);
-         /*         console.log(budzet.transakcje); */
          li.remove();
      });
-     /*     console.log(Transakcja.numInstances);
-         console.log(this.id); */
  }
 
-
-
-
-
- /*  trans1 = new Transakcja(1000 , "czynsz");
-  trans2 = new Transakcja(2000 , "czynsz", false);
-
-  
-  trans1.dodajDoListy();
-  trans1.dodajDoListy();
-  trans1.dodajDoListy();
-  trans2.dodajDoListy();
-  trans2.dodajDoListy(); */
- /* console.log('LALALALAALALAL');
- /* console.log('LALALALAALALAL');
- /* console.log('LALALALAALALAL');
- /* console.log('LALALALAALALAL');
-
-
- const li = document.createElement("li");
- const opis = document.createElement("span");
- const kwota = document.createElement("span");
- const deleteBtn = document.createElement("span");
-
- opis.textContent = " NA SAMOCHÓD";
- kwota.textContent = " 56 tys. zł";
- deleteBtn.textContent = " X";
-
- li.classList.add("wydatek-lista");
-
- li.appendChild(opis);
- li.appendChild(kwota);
- li.appendChild(deleteBtn);
-
- document.getElementById('przychody-ul').appendChild(li);
-  */
