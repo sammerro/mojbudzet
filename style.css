@@ -217,7 +217,7 @@ padding: 2rem 0;
   /*   background-image:linear-gradient(to right bottom, rgb(255, 255, 255), rgb(224, 224, 224)); */
 /*     min-height: 30vh; */
     display: flex;
-    font-weight: 300;
+
 }
 @media (max-width: 600px) {
     .section-dol {
@@ -247,6 +247,7 @@ padding: 2rem 0;
     margin: 0 auto;
     width: 40%;
     margin-bottom: 3rem;
+    font-weight: 200;
 /*     border-bottom: 1px solid currentColor; */
 }
 
@@ -305,7 +306,7 @@ li {
     .lista-span-delete {
         height: 2.5rem;
         width: 2.5rem;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 }
 .lista-span-delete:hover {
