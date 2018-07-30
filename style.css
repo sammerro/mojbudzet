@@ -34,7 +34,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 /*     margin: 2rem; */
     cursor: default;
-   background-color: rgb(224, 224, 224);
+   background-color: rgb(235, 235, 235);
 }
 
 /* HEADER */
@@ -212,15 +212,18 @@ padding: 2rem 0;
 
 .section-dol {
     padding-top: 2rem;
-    background-image:linear-gradient(to right bottom, rgb(255, 255, 255), rgb(224, 224, 224));
-    min-height: 40vh;
+    padding-bottom: 2rem;
+   background-color: rgb(235, 235, 235);
+  /*   background-image:linear-gradient(to right bottom, rgb(255, 255, 255), rgb(224, 224, 224)); */
+/*     min-height: 30vh; */
     display: flex;
     font-weight: 300;
 }
 @media (max-width: 600px) {
     .section-dol {
-        min-height: 50vh;
-        padding-top: 3rem;
+/*         min-height: 30vh; */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     }
 }
 
@@ -259,7 +262,7 @@ li {
     display: flex;
     list-style-type: none;
     border-bottom: 1px solid gray;
-    justify-content: space-between;
+    justify-content: start ;
     height: 4rem;
     align-items: center;
     text-align:left;
@@ -268,7 +271,7 @@ li {
 }
 
 .lista-span-kwota {
-    margin-right: 1rem;
+
 }
 
 .lista-span-kwota::after {
@@ -276,6 +279,8 @@ li {
 }
 
 .lista-span-opis {
+    margin-right: auto;
+    margin-left: auto;
 }
 .lista-span-opis::after,
 .lista-span-opis::before {
@@ -283,13 +288,13 @@ li {
 }
 
 .lista-span-delete {
-    font-size:1rem;
+    font-size: 1rem;
     display: flex;
     height: 3rem;
     width: 3rem;
     cursor: pointer;
     border: 1px solid rgb(138, 138, 138);
-    color: /* rgb(34, 34, 34); */ rgb(233, 233, 233);
+    color: /* rgb(34, 34, 34); */ rgb(255, 255, 255);
     opacity: 0;
     background-image: radial-gradient(rgba(255, 0, 0, 0.493),rgba(255, 0, 0, 0.493));
     border-radius: 100px;
@@ -300,6 +305,7 @@ li {
     .lista-span-delete {
         height: 2.5rem;
         width: 2.5rem;
+        font-size: 1.4rem;
     }
 }
 .lista-span-delete:hover {
