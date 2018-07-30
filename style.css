@@ -34,6 +34,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 /*     margin: 2rem; */
     cursor: default;
+   background-color: rgb(224, 224, 224);
 }
 
 /* HEADER */
@@ -120,18 +121,10 @@ body {
 
 .section-wprowadzanie {
 /*     border-top: 1px solid rgb(255, 255, 255); */
-    padding: 2rem 0;
-    background-color: #491e1edc;
+padding: 2rem 0;
+    background-color: #612929dc;
+    border-bottom: 1px solid rgb(94, 94, 94);
 }
-@media (max-width: 500px) {
-    .section-wprowadzanie {
-        padding: 0;
-        background-color: #fff;
-        border-bottom: 1px solid gray;
-    }
-}
-
-
 
 @media (max-width: 700px) {
     .section-wprowadzanie {
@@ -156,7 +149,6 @@ body {
     border: none; 
     border-right: .1rem solid gray;
     transition: all .1s ease-in;
-
 }
 
 .wprowadzanie-kwota,
@@ -171,11 +163,11 @@ body {
     transition: all .1s ease-in;
 }
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
     .wprowadzanie-kwota, .wprowadzanie-opis {
         align-self: center;
     }
-}
+} */
 
 .wprowadzanie-kwota:hover, .wprowadzanie-opis:hover {
     background-color: rgb(231, 230, 230);
@@ -189,7 +181,7 @@ body {
     display: flex;
     flex-direction: column;
     order: 3;
-    width: 8%;
+    width: 10%;
 }
 
 @media (max-width: 700px) {
@@ -221,13 +213,13 @@ body {
 .section-dol {
     padding-top: 2rem;
     background-image:linear-gradient(to right bottom, rgb(255, 255, 255), rgb(224, 224, 224));
-    min-height: 37.7vh;
+    min-height: 40vh;
     display: flex;
     font-weight: 300;
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     .section-dol {
-        min-height: 59.5vh;
+        min-height: 50vh;
         padding-top: 3rem;
     }
 }
@@ -241,24 +233,18 @@ body {
     text-align: center;
     font-size: 2rem;
 }
-@media (max-width: 500px) {
-    .tabela-flex {
-        min-width: 99vw;
-    }
-}
+
 .tabela {
-    width: 48%;
+    width: 49%;
 }
 
-.przychody {}
-
-.wydatki {}
 
 .tabela-title {
     font-size: 3.5rem;
     margin: 0 auto;
-    width: 100%;
+    width: 40%;
     margin-bottom: 3rem;
+/*     border-bottom: 1px solid currentColor; */
 }
 
 .wydatki {
@@ -272,7 +258,7 @@ body {
 li {
     display: flex;
     list-style-type: none;
-    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
     justify-content: space-between;
     height: 4rem;
     align-items: center;
@@ -312,8 +298,8 @@ li {
 }
 @media (max-width: 500px) {
     .lista-span-delete {
-        height: 2rem;
-        width: 2rem;
+        height: 2.5rem;
+        width: 2.5rem;
     }
 }
 .lista-span-delete:hover {
