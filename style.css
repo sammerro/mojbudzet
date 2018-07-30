@@ -123,10 +123,11 @@ body {
     padding: 2rem 0;
     background-color: #491e1edc;
 }
-@media (max-width: 500px) {
+
+
+@media (max-width: 700px) {
     .section-wprowadzanie {
         padding: 0;
-        background-color: #fff;
         border-bottom: 1px solid gray;
     }
 }
@@ -147,6 +148,7 @@ body {
     border: none; 
     border-right: .1rem solid gray;
     transition: all .1s ease-in;
+
 }
 
 .wprowadzanie-kwota,
@@ -159,6 +161,12 @@ body {
     color: rgb(1, 0, 66);
     width: 30%;
     transition: all .1s ease-in;
+}
+
+@media (max-width: 700px) {
+    .wprowadzanie-kwota, .wprowadzanie-opis {
+        align-self: center;
+    }
 }
 
 .wprowadzanie-kwota:hover, .wprowadzanie-opis:hover {
@@ -176,7 +184,7 @@ body {
     width: 8%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     .wprowadzanie-btn-box {
         width: 10%;
     }
@@ -187,6 +195,11 @@ body {
     outline: none;
     cursor: pointer;
     display: flex;
+}
+@media (max-width: 700px) {
+    .wprowadzanie-btn {
+        height: 30px;
+    }
 }
 .wprowadzanie-btn p {
     margin: auto;
@@ -204,7 +217,7 @@ body {
     display: flex;
     font-weight: 300;
 }
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     .section-dol {
         min-height: 59.5vh;
         padding-top: 3rem;
