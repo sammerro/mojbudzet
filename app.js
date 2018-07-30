@@ -86,7 +86,7 @@
      const kwota = document.createElement("span");
      const deleteBtn = document.createElement("span");
      //pomocnicze _this dla eventHandlerow     
-     let _this = this;
+  /*    let _this = this; */ //rozwiązane wprowadzeniem arrow function
 
      //Dodanie znacznika w postaci klasy do elementu li:
      li.classList.add('id-' + this.id);
@@ -118,8 +118,8 @@
      li.addEventListener("mouseleave", function () {
          deleteBtn.classList.remove('aktywny');
      });
-     deleteBtn.addEventListener('click', function () {
-         budzet.usunTransakcje(_this);
+     deleteBtn.addEventListener('click', () => {
+         budzet.usunTransakcje(this);
          li.remove();
      });
  }
