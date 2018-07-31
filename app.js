@@ -92,7 +92,7 @@
      li.classList.add('id-' + this.id);
 
      opis.textContent = this.opis;
-     kwota.textContent = this.kwota;
+     kwota.textContent = parseFloat(this.kwota);
      deleteBtn.innerHTML = '<p>&#x274C</p>';
 
 
