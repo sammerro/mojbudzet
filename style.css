@@ -275,9 +275,9 @@ li {
 
 }
 
-.lista-span-kwota::after {
+/* .lista-span-kwota::after {
     content: ' zł';
-}
+} */
 
 .lista-span-opis {
     margin-right: auto;

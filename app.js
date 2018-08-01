@@ -2,9 +2,18 @@
 
 /*%%%%%%%%%%%%%%%%%%%%%%% Funkcje pomocnicze %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
+
 //zaokroglenie do 2 miejsc po przecinku
 const zaokraglenie = (x) => parseFloat(x.toFixed(2));
 
+// Format na polskie złotowki
+const formatWaluta = (x, waluta='zł') => {
+    x = zaokraglenie(x);
+    let calkowita = Math.floor(x);
+    let dziesietna = (x - calkowita).toFixed(2);
+    dziesietna = dziesietna.slice(2);
+    return `${calkowita},${dziesietna}\xa0${waluta}`;
+}
 //walidacja inputow
  const walidacja = (opis, kwota) => {
     let komunikat = '';
@@ -99,9 +108,9 @@ const zaokraglenie = (x) => parseFloat(x.toFixed(2));
     }
 
      this.bilans = this.calyPrzychod - this.calyWydatek;
-     divPrzychod.innerHTML = zaokraglenie(this.calyPrzychod) + ' zł';
-     h1Bilans.innerHTML = zaokraglenie(this.bilans) + ' zł';
-     divWydatki.innerHTML = zaokraglenie(this.calyWydatek) + ' zł';
+     divPrzychod.innerHTML = formatWaluta(this.calyPrzychod);
+     h1Bilans.innerHTML = formatWaluta(this.bilans);
+     divWydatki.innerHTML = formatWaluta(this.calyWydatek);
  }
  //interfejs dla metody Transakcji UsunZListy
  Budzet.prototype.usunTransakcje = function (trans) {
@@ -114,9 +123,9 @@ const zaokraglenie = (x) => parseFloat(x.toFixed(2));
         this.calyWydatek = this.calyWydatek - kwota;
     }
      this.bilans = this.calyPrzychod - this.calyWydatek;
-     divPrzychod.innerHTML = zaokraglenie(this.calyPrzychod) + ' zł';
-     h1Bilans.innerHTML = zaokraglenie(this.bilans) + ' zł';
-     divWydatki.innerHTML = zaokraglenie(this.calyWydatek) + ' zł';
+     divPrzychod.innerHTML = formatWaluta(this.calyPrzychod);
+     h1Bilans.innerHTML = formatWaluta(this.bilans);
+     divWydatki.innerHTML = formatWaluta(this.calyWydatek);
  }
  // ------------------------------------------------------------
 
@@ -141,7 +150,7 @@ const zaokraglenie = (x) => parseFloat(x.toFixed(2));
      li.classList.add('id-' + this.id);
 
      opis.textContent = this.opis;
-     kwota.textContent = zaokraglenie(this.kwota);
+     kwota.textContent = formatWaluta(this.kwota);
      deleteBtn.innerHTML = '<p>&#x274C</p>';
 
 
