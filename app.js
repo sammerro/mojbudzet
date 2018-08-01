@@ -20,18 +20,22 @@ const formatWaluta = (x, waluta='zł') => {
     inputOpis.classList.remove('zle-dane');
     inputKwota.classList.remove('zle-dane');
 
-    if ( opis === '') {
-        komunikat = komunikat.concat("Pole opis nie może być puste!\n");
-        inputOpis.classList.add('zle-dane');
-    }
     if (kwota === '') {
         komunikat = komunikat.concat("Nie podano kwoty lub podana kwota jest nieprawidłowo zapisana.\n");
         inputKwota.classList.add('zle-dane');
+        inputKwota.focus();
     }
     if (kwota < 0 ) {
-        komunikat = komunikat.concat("kwota musi być dodatnia\n");
+        komunikat = komunikat.concat("Kwota musi być dodatnia.\n");
         inputKwota.classList.add('zle-dane');
+        inputKwota.focus();
     }
+    if ( opis === '') {
+        komunikat = komunikat.concat("Opis nie może być pusty.\n");
+        inputOpis.classList.add('zle-dane');
+        inputOpis.focus();
+    }
+
 
     if (komunikat !== '' ) {
         alert(komunikat);
@@ -53,6 +57,7 @@ const formatWaluta = (x, waluta='zł') => {
  const divWydatki = document.getElementById('sumaWydatkow');
  const h1Bilans = document.getElementById('bilans');
 
+ inputOpis.focus();
 
  const budzet = new Budzet();
 
@@ -145,6 +150,7 @@ const formatWaluta = (x, waluta='zł') => {
      const opis = document.createElement("span");
      const kwota = document.createElement("span");
      const deleteBtn = document.createElement("span");
+
 
      //Dodanie znacznika w postaci klasy do elementu li:
      li.classList.add('id-' + this.id);

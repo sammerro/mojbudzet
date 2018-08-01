@@ -38,16 +38,16 @@
     <section class="section-wprowadzanie">
 
         <div class="wprowadzanie-box">
-            <div class="wprowadzanie-btn-box">
-                <button id="przychod" class="wprowadzanie-btn plus">
-                    <p>+</p>
+            <div class="wprowadzanie-btn-box" tabindex="0">
+                <button id="przychod" class="wprowadzanie-btn plus" tabindex="3">
+                    <p tabindex="-1">+</p>
                 </button>
-                <button id="wydatek" class="wprowadzanie-btn minus">
-                    <p>-</p>
+                <button id="wydatek" class="wprowadzanie-btn minus" tabindex="4">
+                    <p tabindex="-1">-</p>
                 </button>
             </div>
-            <input class="wprowadzanie-opis" type="text" placeholder="opis transakcji">
-            <input class="wprowadzanie-kwota" type="number" placeholder="kwota">
+            <input class="wprowadzanie-opis" type="text" placeholder="opis transakcji" tabindex="1">
+            <input class="wprowadzanie-kwota" type="number" placeholder="kwota" step="0.01" tabindex="2">
 
         </div>
 

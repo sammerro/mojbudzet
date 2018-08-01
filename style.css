@@ -196,10 +196,17 @@ padding: 2rem 0;
         height: 30px;
     }
 }
+.wprowadzanie-btn:focus {
+    border: 2px solid blue;
+}
+
 .wprowadzanie-btn p {
     margin: auto;
     text-align: center;
+    outline: none;
 }
+
+
 
 
 .zle-dane {
