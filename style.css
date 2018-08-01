@@ -163,11 +163,6 @@ padding: 2rem 0;
     transition: all .1s ease-in;
 }
 
-/* @media (max-width: 700px) {
-    .wprowadzanie-kwota, .wprowadzanie-opis {
-        align-self: center;
-    }
-} */
 
 .wprowadzanie-kwota:hover, .wprowadzanie-opis:hover {
     background-color: rgb(231, 230, 230);
@@ -206,6 +201,11 @@ padding: 2rem 0;
     text-align: center;
 }
 
+
+.zle-dane {
+    border: 1px solid red;
+    background:rgb(255, 179, 179);
+}
 
 /* PRZYCHODY WYDATKI */
 /* ****************************************************************** */

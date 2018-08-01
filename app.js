@@ -9,13 +9,38 @@
  const h1Bilans = document.getElementById('bilans');
 
 
- const budzet = new Budzet();
+ const walidacja = (opis, kwota) => {
+    let komunikat = '';
+    inputOpis.classList.remove('zle-dane');
+    inputKwota.classList.remove('zle-dane');
 
+
+    if ( opis === '') {
+        komunikat = komunikat.concat("Pole opis nie może być puste!\n");
+        inputOpis.classList.add('zle-dane');
+    }
+    if (kwota === '') {
+        komunikat = komunikat.concat("Nie podano kwoty lub podana kwota jest nieprawidłowo zapisana.\n");
+        inputKwota.classList.add('zle-dane');
+    }
+    if (kwota < 0 ) {
+        komunikat = komunikat.concat("kwota musi być dodatnia\n");
+        inputKwota.classList.add('zle-dane');
+    }
+
+    if (komunikat !== '' ) {
+        alert(komunikat);
+        return false;
+    }
+    else return true;
+ }
+
+ const budzet = new Budzet();
 
  przychodBtn.addEventListener('click', function () {
      let kwota = inputKwota.value;
      let opis = inputOpis.value;
-     if (kwota != '' && opis != '') {
+     if (walidacja(opis, kwota)) {
          let trans = new Transakcja(kwota, opis, true);
          trans.dodajDoListy();
 
@@ -28,7 +53,7 @@
  wydatekBtn.addEventListener('click', function () {
      let kwota = inputKwota.value;
      let opis = inputOpis.value;
-     if (kwota != '' && opis != '') {
+     if (walidacja(opis, kwota)) {
          let trans = new Transakcja(kwota, opis, false);
          trans.dodajDoListy();
 
