@@ -70,6 +70,7 @@ const formatWaluta = (x, waluta='zł') => {
 
          inputKwota.value = '';
          inputOpis.value = '';
+         inputOpis.focus();
      }
 
  });
@@ -83,6 +84,7 @@ const formatWaluta = (x, waluta='zł') => {
 
          inputKwota.value = '';
          inputOpis.value = '';
+         inputOpis.focus();
      }
 
  });
