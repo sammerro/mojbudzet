@@ -1,3 +1,8 @@
+:root {
+    --color-outline:#5B9DD9;
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -140,8 +145,9 @@ padding: 2rem 0;
     margin: 0 auto;
     justify-content: center;
 }
-.wprowadzanie-opis {
-    outline: none;
+.wprowadzanie-opis,
+.wprowadzanie-opis:link {
+    outline: var(--color-outline);
     order: 0;
     font-size: 2rem;
     width: 60%;
@@ -150,10 +156,12 @@ padding: 2rem 0;
     border-right: .1rem solid gray;
     transition: all .1s ease-in;
 }
-
+.wprowadzanie-opis:focus {
+    border: 2px solid var(--color-outline);
+}
 .wprowadzanie-kwota,
 .wprowadzanie-kwota:link {
-    border: none;
+    outline: var(--color-outline);
     display: block;
     background-color: rgb(255, 255, 255);
     font-size: 2rem;
@@ -162,15 +170,15 @@ padding: 2rem 0;
     width: 30%;
     transition: all .1s ease-in;
 }
+.wprowadzanie-kwota:focus {
+    border: 2px solid var(--color-outline);
+}
 
 
 .wprowadzanie-kwota:hover, .wprowadzanie-opis:hover {
     background-color: rgb(231, 230, 230);
 }
 
-.wprowadzanie-kwota:hover {
-    outline: none;
-}
 
 .wprowadzanie-btn-box {
     display: flex;
@@ -187,9 +195,9 @@ padding: 2rem 0;
 
 .wprowadzanie-btn {
     font-size: 2rem;
-    outline: none;
     cursor: pointer;
     display: flex;
+    outline: var(--color-outline);
 }
 @media (max-width: 700px) {
     .wprowadzanie-btn {
@@ -197,7 +205,7 @@ padding: 2rem 0;
     }
 }
 .wprowadzanie-btn:focus {
-    border: 2px solid blue;
+    border: 2px solid var(--color-outline);
 }
 
 .wprowadzanie-btn p {
