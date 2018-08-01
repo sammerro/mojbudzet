@@ -1,19 +1,15 @@
- /* Przepisywanie transakcji do listy */
- const przychodBtn = document.getElementById('przychod');
- const wydatekBtn = document.getElementById('wydatek');
- const inputKwota = document.querySelector('.wprowadzanie-kwota');
- const inputOpis = document.querySelector('.wprowadzanie-opis');
+"use strict";
 
- const divPrzychod = document.getElementById('sumaPrzychodow');
- const divWydatki = document.getElementById('sumaWydatkow');
- const h1Bilans = document.getElementById('bilans');
+/*%%%%%%%%%%%%%%%%%%%%%%% Funkcje pomocnicze %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
+//zaokroglenie do 2 miejsc po przecinku
+const zaokraglenie = (x) => parseFloat(x.toFixed(2));
 
+//walidacja inputow
  const walidacja = (opis, kwota) => {
     let komunikat = '';
     inputOpis.classList.remove('zle-dane');
     inputKwota.classList.remove('zle-dane');
-
 
     if ( opis === '') {
         komunikat = komunikat.concat("Pole opis nie może być puste!\n");
@@ -34,6 +30,20 @@
     }
     else return true;
  }
+ /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* Dzialanie aplikacji %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+ const przychodBtn = document.getElementById('przychod');
+ const wydatekBtn = document.getElementById('wydatek');
+ const inputKwota = document.querySelector('.wprowadzanie-kwota');
+ const inputOpis = document.querySelector('.wprowadzanie-opis');
+
+ const divPrzychod = document.getElementById('sumaPrzychodow');
+ const divWydatki = document.getElementById('sumaWydatkow');
+ const h1Bilans = document.getElementById('bilans');
+
 
  const budzet = new Budzet();
 
@@ -41,7 +51,7 @@
      let kwota = inputKwota.value;
      let opis = inputOpis.value;
      if (walidacja(opis, kwota)) {
-         let trans = new Transakcja(kwota, opis, true);
+         let trans = new Transakcja(parseFloat(kwota), opis, true);
          trans.dodajDoListy();
 
          inputKwota.value = '';
@@ -54,7 +64,7 @@
      let kwota = inputKwota.value;
      let opis = inputOpis.value;
      if (walidacja(opis, kwota)) {
-         let trans = new Transakcja(kwota, opis, false);
+         let trans = new Transakcja(parseFloat(kwota), opis, false);
          trans.dodajDoListy();
 
          inputKwota.value = '';
@@ -62,6 +72,10 @@
      }
 
  });
+
+ //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
  /* BUDZET */
  function Budzet() {
@@ -72,25 +86,37 @@
  }
  //interfejs dla metody Transakcji dodajDoListy
  Budzet.prototype.dodajTransakcje = function (trans) {
-     //dodanie do listy transakcji
+     //dodanie do transakcji do budzetu
      this.transakcje.set(trans.id, trans);
      // aktualizacja pol calyPrzychod, calyDochod i bilans
      let kwota = parseFloat(trans.kwota);
-     (trans.czyPlus) ? this.calyPrzychod += kwota: this.calyWydatek += kwota;
+     
+    if (trans.czyPlus) {
+        this.calyPrzychod = this.calyPrzychod + kwota;        
+    }
+    else {
+        this.calyWydatek = this.calyWydatek + kwota;
+    }
+
      this.bilans = this.calyPrzychod - this.calyWydatek;
-         divPrzychod.innerHTML = this.calyPrzychod + ' zł';
-         h1Bilans.innerHTML = this.bilans + ' zł';
-         divWydatki.innerHTML = this.calyWydatek + ' zł';
+     divPrzychod.innerHTML = zaokraglenie(this.calyPrzychod) + ' zł';
+     h1Bilans.innerHTML = zaokraglenie(this.bilans) + ' zł';
+     divWydatki.innerHTML = zaokraglenie(this.calyWydatek) + ' zł';
  }
  //interfejs dla metody Transakcji UsunZListy
  Budzet.prototype.usunTransakcje = function (trans) {
      this.transakcje.delete(trans.id);
      let kwota = parseFloat(trans.kwota);
-     (trans.czyPlus) ? this.calyPrzychod -= kwota: this.calyWydatek -= kwota;
+     if (trans.czyPlus) {
+        this.calyPrzychod = this.calyPrzychod - kwota;        
+    }
+    else {
+        this.calyWydatek = this.calyWydatek - kwota;
+    }
      this.bilans = this.calyPrzychod - this.calyWydatek;
-         divPrzychod.innerHTML = this.calyPrzychod;
-         h1Bilans.innerHTML = this.bilans;
-         divWydatki.innerHTML = this.calyWydatek;
+     divPrzychod.innerHTML = zaokraglenie(this.calyPrzychod) + ' zł';
+     h1Bilans.innerHTML = zaokraglenie(this.bilans) + ' zł';
+     divWydatki.innerHTML = zaokraglenie(this.calyWydatek) + ' zł';
  }
  // ------------------------------------------------------------
 
@@ -110,14 +136,12 @@
      const opis = document.createElement("span");
      const kwota = document.createElement("span");
      const deleteBtn = document.createElement("span");
-     //pomocnicze _this dla eventHandlerow     
-  /*    let _this = this; */ //rozwiązane wprowadzeniem arrow function
 
      //Dodanie znacznika w postaci klasy do elementu li:
      li.classList.add('id-' + this.id);
 
      opis.textContent = this.opis;
-     kwota.textContent = parseFloat(this.kwota);
+     kwota.textContent = zaokraglenie(this.kwota);
      deleteBtn.innerHTML = '<p>&#x274C</p>';
 
 
