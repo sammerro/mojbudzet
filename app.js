@@ -3,6 +3,16 @@
 /*%%%%%%%%%%%%%%%%%%%%%%% Funkcje pomocnicze %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
 
+//do wykresu
+//dla danych do wykresu skalowanie - liczby zamieniam na procenty
+//względem największej wartosci w tablicy ktora ma zawsze 100%
+const skalujProcentowo = (arr) => {
+    let max = Math.max( ...arr );
+    let newArr = arr.map((n)=>{
+        return (100*n/max).toFixed(1);
+    });
+    return newArr;
+};
 //zaokroglenie do 2 miejsc po przecinku
 const zaokraglenie = (x) => parseFloat(x.toFixed(2));
 
@@ -91,18 +101,18 @@ const formatWaluta = (x, waluta='zł') => {
 
 
  //element to query na kontener wykresu np. ".wykres-przychody"
- //dane to array z wartosciami
+ //dane to array z wartosciami - przeskalowanymi proentowo
 const tworzWykres = (dane, element) => {
     d3.selectAll(element+ " > *").remove();
     if (dane == null) return;
-    let data = dane;
+    const data = skalujProcentowo(dane);
     d3.select(element)
     .selectAll("div")
     .data(data)
       .enter()
       .append("div")
-      .style("height", function(d) { return d + "px"; })
-      .text(function(d) { return  d ; });
+      .style("height", function(d) { return d + "%"; })
+      .text(function(d, i) { return  dane[i] ; });
 };
 
 /* tworzWykres([12,34,45,65], ".wykres-przychody");

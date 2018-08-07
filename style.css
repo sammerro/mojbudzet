@@ -66,8 +66,8 @@ body {
 
 
 .header__container {
-    margin: auto;
-    height: 80%;
+    margin:2rem auto;
+    height: 50%;
     width: 80%;
     display: flex;
     align-items: center;
@@ -151,10 +151,10 @@ body {
     left: 0vw;
     transform: translateY(-100%);
     padding: .5rem;
-    height: 20vh;
-    width: 40vw;
+    height: 50%;
+    width: 45vw;
     background-color: transparent;
-/*     border-top: 1px solid #fff; */
+    border-top: 1px solid #fff;
    display: flex;
    align-items: flex-end;
    justify-content: space-between;
@@ -166,10 +166,10 @@ body {
     right: 0vw;
     transform: translateY(-100%);
     padding: .5rem;
-    height: 20vh;
-    width: 40vw;
+    height: 50%;
+    width: 45vw;
     background-color: transparent;
-/*     border-top: 1px solid #fff; */
+    border-top: 1px solid #fff;
    display: flex;
    align-items: flex-end;
    justify-content: space-between;
