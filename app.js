@@ -89,6 +89,37 @@ const formatWaluta = (x, waluta='zł') => {
 
  });
 
+
+ //element to query na kontener wykresu np. ".wykres-przychody"
+ //dane to array z wartosciami
+const tworzWykres = (dane, element) => {
+    d3.selectAll(element+ " > *").remove();
+    if (dane == null) return;
+    let data = dane;
+    d3.select(element)
+    .selectAll("div")
+    .data(data)
+      .enter()
+      .append("div")
+      .style("height", function(d) { return d + "px"; })
+      .text(function(d) { return  d ; });
+};
+
+/* tworzWykres([12,34,45,65], ".wykres-przychody");
+tworzWykres([1,2,2,3,3,3,3,3,3,3,3,3,3,3], ".wykres-wydatki"); */
+
+ d3.selectAll("h1").style("color", function() {
+    return "hsl(" + Math.random() * 360 + ",100%,50%)";
+  });
+
+/*     d3.select(".wykres-wydatki")
+    .selectAll("div")
+    .data(data)
+      .enter()
+      .append("div")
+      .style("height", function(d) { return d * 2 + "px"; })
+      .text(function(d) { return  d ; });
+   */
  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -118,7 +149,9 @@ const formatWaluta = (x, waluta='zł') => {
      divPrzychod.innerHTML = formatWaluta(this.calyPrzychod);
      h1Bilans.innerHTML = formatWaluta(this.bilans);
      divWydatki.innerHTML = formatWaluta(this.calyWydatek);
+
  }
+
  //interfejs dla metody Transakcji UsunZListy
  Budzet.prototype.usunTransakcje = function (trans) {
      this.transakcje.delete(trans.id);
@@ -133,7 +166,29 @@ const formatWaluta = (x, waluta='zł') => {
      divPrzychod.innerHTML = formatWaluta(this.calyPrzychod);
      h1Bilans.innerHTML = formatWaluta(this.bilans);
      divWydatki.innerHTML = formatWaluta(this.calyWydatek);
+
  }
+ //dla wykresow 
+ Budzet.prototype.tablicaWartosciPrzychodow = function() {
+     let tablicaTransakcji = [...this.transakcje.values() ];
+     let tablicaPrzychodow = tablicaTransakcji.filter((element)=>{
+        return element.czyPlus === true;
+     });
+     let tablicaKwotPrzychodow = tablicaPrzychodow.map((tr)=> {
+        return tr.kwota;
+     });
+     return tablicaKwotPrzychodow;
+ }
+ Budzet.prototype.tablicaWartosciWydatkow = function() {
+    let tablicaTransakcji = [...this.transakcje.values() ];
+    let tablicaWydatkow = tablicaTransakcji.filter((element)=>{
+       return element.czyPlus === false;
+    });
+    let tablicaKwotWydatkow = tablicaWydatkow.map((tr)=> {
+       return tr.kwota;
+    });
+    return tablicaKwotWydatkow;
+}
  // ------------------------------------------------------------
 
 
@@ -176,6 +231,8 @@ const formatWaluta = (x, waluta='zł') => {
          document.getElementById('wydatki-ul').appendChild(li);
      }
      budzet.dodajTransakcje(this);
+     tworzWykres(budzet.tablicaWartosciPrzychodow(), ".wykres-przychody");
+     tworzWykres(budzet.tablicaWartosciWydatkow(), ".wykres-wydatki");
 
 
      li.addEventListener("mouseover", function () {
@@ -185,8 +242,11 @@ const formatWaluta = (x, waluta='zł') => {
          deleteBtn.classList.remove('aktywny');
      });
      deleteBtn.addEventListener('click', () => {
-         budzet.usunTransakcje(this);
-         li.remove();
+        budzet.usunTransakcje(this);
+        li.remove();
+        inputOpis.focus();
+        tworzWykres(budzet.tablicaWartosciPrzychodow(), ".wykres-przychody");
+        tworzWykres(budzet.tablicaWartosciWydatkow(), ".wykres-wydatki");
      });
  }
 

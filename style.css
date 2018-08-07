@@ -1,8 +1,13 @@
 :root {
     --color-outline:#5B9DD9;
+    --header-height: 50vh;
 }
 
-
+@media (max-width: 600px) {
+    :root {
+        --header-height: 40vh;
+    }
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -46,16 +51,16 @@ body {
 /* ************************************************* */
 .header {
     text-align: center;
-    height: 50vh;
+    height: var( --header-height);
     background-image: linear-gradient( #8b000073, #00185852), url(img/header_background_wide.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
+    perspective: 1px;
 }
 @media (max-width: 600px) {
     .header {
         background-image: linear-gradient( #8b000073, #00185852), url(img/header_background_wide-mobile.jpg);
-        height: 40vh;
     }
 }
 
@@ -120,7 +125,78 @@ body {
     font-weight: 400;
 }
 
+/* Wykresy */
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+.btn-wykres-przychody {
+    position: absolute;
+    top: var( --header-height);
+    left: 10vw;
+    transform: translateY(-100%);
+    padding: .5rem;
+    z-index: 5;
+}
 
+.btn-wykres-wydatki {
+    position: absolute;
+    top: var( --header-height);
+    right: 10vw;
+    transform: translateY(-100%);
+    padding: .5rem;
+    z-index: 5;
+}
+
+.wykres-przychody {
+    position: absolute;
+    top: var( --header-height);
+    left: 0vw;
+    transform: translateY(-100%);
+    padding: .5rem;
+    height: 20vh;
+    width: 40vw;
+    background-color: transparent;
+/*     border-top: 1px solid #fff; */
+   display: flex;
+   align-items: flex-end;
+   justify-content: space-between;
+}
+
+.wykres-wydatki {
+    position: absolute;
+    top: var( --header-height);
+    right: 0vw;
+    transform: translateY(-100%);
+    padding: .5rem;
+    height: 20vh;
+    width: 40vw;
+    background-color: transparent;
+/*     border-top: 1px solid #fff; */
+   display: flex;
+   align-items: flex-end;
+   justify-content: space-between;
+
+}
+
+.wykres-przychody div {
+    font-size: 1rem;
+    background-color: steelblue;
+    text-align: left;
+    color: white;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    margin-right: 2px;
+    flex: 0 1 10%;
+  }
+
+  .wykres-wydatki div {
+    font-size: 1rem;
+    background-color: rgb(180, 70, 121);
+    text-align: left;
+    color: white;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    margin-right: 2px;
+    flex: 0 1 10%;
+  }
 /* WPROWADZANIE DANYCH*/
 /*  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
 
