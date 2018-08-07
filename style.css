@@ -1,11 +1,11 @@
 :root {
     --color-outline:#5B9DD9;
-    --header-height: 50vh;
+    --header-height: 60vh;
 }
 
 @media (max-width: 600px) {
     :root {
-        --header-height: 40vh;
+        --header-height: 60vh;
     }
 }
 * {
@@ -145,60 +145,54 @@ body {
     z-index: 5;
 }
 
-.wykres-przychody {
+.wykres {
     position: absolute;
     top: var( --header-height);
-    left: 0;
     transform: translateY(-100%);
-    padding: .5rem;
     height: 50%;
-    width: 45vw;
+    width: 47.5vw;
     background-color: transparent;
-    border-top: 1px solid #fff;
-   display: flex;
-   align-items: flex-end;
-   justify-content: start;
+    display: flex;
+    align-items: flex-end;
+    justify-content: start;
+}
+
+.wykres-przychody {
+    left: 1vw;
 }
 
 .wykres-wydatki {
-    position: absolute;
-    top: var( --header-height);
-    right: 0;
-    transform: translateY(-100%);
-    padding: .5rem;
-    height: 50%;
-    width: 45vw;
-    background-color: transparent;
-    border-top: 1px solid #fff;
-   display: flex;
-   align-items: flex-end;
-   justify-content: start;
-
+    right: 1vw;
 }
 
-.wykres-przychody div {
+.wykres div {
     padding: .5rem;
-    font-size: 1rem;
-    background-color: steelblue;
+    font-size: 10px;
     text-align: left;
     color: white;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    margin-right: 2px;
+    border: 1px solid whitesmoke;
+    border-bottom: none;
+    border-radius: .5rem .5rem 0 0;
+/*     writing-mode: vertical-rl;
+    text-orientation: mixed; */
+    margin: 0 .4rem;
     flex: 0 1 10%;
   }
+  @media (max-width: 600px) {
+    .wykres div {
+        flex: 0 1 20%;
+    }
+}
 
   .wykres-wydatki div {
-    padding: .5rem;
-    font-size: 1rem;
-    background-color: rgb(180, 70, 121);
-    text-align: left;
-    color: white;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    margin-right: 2px;
-    flex: 0 1 10%;
+    background-image: linear-gradient(to bottom, rgba(199, 0, 0, 1), rgba(173, 158, 158, 1))
+
   }
+
+  .wykres-przychody div {
+    background-image: linear-gradient(to bottom, rgba(80, 199, 0, 1), rgba(168, 180, 166, 1))   
+  }
+
 /* WPROWADZANIE DANYCH*/
 /*  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
 
