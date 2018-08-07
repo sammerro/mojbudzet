@@ -148,7 +148,7 @@ body {
 .wykres-przychody {
     position: absolute;
     top: var( --header-height);
-    left: 0vw;
+    left: 0;
     transform: translateY(-100%);
     padding: .5rem;
     height: 50%;
@@ -157,13 +157,13 @@ body {
     border-top: 1px solid #fff;
    display: flex;
    align-items: flex-end;
-   justify-content: space-between;
+   justify-content: start;
 }
 
 .wykres-wydatki {
     position: absolute;
     top: var( --header-height);
-    right: 0vw;
+    right: 0;
     transform: translateY(-100%);
     padding: .5rem;
     height: 50%;
@@ -172,11 +172,12 @@ body {
     border-top: 1px solid #fff;
    display: flex;
    align-items: flex-end;
-   justify-content: space-between;
+   justify-content: start;
 
 }
 
 .wykres-przychody div {
+    padding: .5rem;
     font-size: 1rem;
     background-color: steelblue;
     text-align: left;
@@ -188,6 +189,7 @@ body {
   }
 
   .wykres-wydatki div {
+    padding: .5rem;
     font-size: 1rem;
     background-color: rgb(180, 70, 121);
     text-align: left;

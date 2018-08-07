@@ -53,6 +53,37 @@ const formatWaluta = (x, waluta='zł') => {
     }
     else return true;
  }
+
+  //element to query na kontener wykresu np. ".wykres-przychody"
+ //dane to array z wartosciami - przeskalowanymi proentowo
+ //etykiety - tablice z oznaczeniami
+const tworzWykres = (element, dane, etykiety) => {
+    d3.selectAll(element+ " > *").remove();
+    if (dane == null) return;
+    d3.select(element)
+    .selectAll("div")
+    .data(dane)
+      .enter()
+      .append("div")
+      .style("height", function(d) { return d + "%"; })
+      .text(function(d, i) { return  formatWaluta(etykiety[i]) ; });
+};
+
+/* tworzWykres([12,34,45,65], ".wykres-przychody");
+tworzWykres([1,2,2,3,3,3,3,3,3,3,3,3,3,3], ".wykres-wydatki"); */
+
+/*  d3.selectAll("h1").style("color", function() {
+    return "hsl(" + Math.random() * 360 + ",100%,50%)";
+  });
+ */
+/*     d3.select(".wykres-wydatki")
+    .selectAll("div")
+    .data(data)
+      .enter()
+      .append("div")
+      .style("height", function(d) { return d * 2 + "px"; })
+      .text(function(d) { return  d ; });
+   */
  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
 /* Dzialanie aplikacji %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
@@ -100,38 +131,7 @@ const formatWaluta = (x, waluta='zł') => {
  });
 
 
- //element to query na kontener wykresu np. ".wykres-przychody"
- //dane to array z wartosciami - przeskalowanymi proentowo
-const tworzWykres = (dane, element) => {
-    d3.selectAll(element+ " > *").remove();
-    if (dane == null) return;
-    const data = skalujProcentowo(dane);
-    d3.select(element)
-    .selectAll("div")
-    .data(data)
-      .enter()
-      .append("div")
-      .style("height", function(d) { return d + "%"; })
-      .text(function(d, i) { return  dane[i] ; });
-};
-
-/* tworzWykres([12,34,45,65], ".wykres-przychody");
-tworzWykres([1,2,2,3,3,3,3,3,3,3,3,3,3,3], ".wykres-wydatki"); */
-
- d3.selectAll("h1").style("color", function() {
-    return "hsl(" + Math.random() * 360 + ",100%,50%)";
-  });
-
-/*     d3.select(".wykres-wydatki")
-    .selectAll("div")
-    .data(data)
-      .enter()
-      .append("div")
-      .style("height", function(d) { return d * 2 + "px"; })
-      .text(function(d) { return  d ; });
-   */
  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
  /* BUDZET */
@@ -179,25 +179,34 @@ tworzWykres([1,2,2,3,3,3,3,3,3,3,3,3,3,3], ".wykres-wydatki"); */
 
  }
  //dla wykresow 
- Budzet.prototype.tablicaWartosciPrzychodow = function() {
-     let tablicaTransakcji = [...this.transakcje.values() ];
-     let tablicaPrzychodow = tablicaTransakcji.filter((element)=>{
+Budzet.prototype.wartosciTransakcji = function() {
+    let tablicaTransakcji = [...this.transakcje.values() ];
+    let tablicaPrzychodow = tablicaTransakcji.filter((element)=>{
         return element.czyPlus === true;
+     });
+     let tablicaWydatkow = tablicaTransakcji.filter((element)=>{
+        return element.czyPlus === false;
      });
      let tablicaKwotPrzychodow = tablicaPrzychodow.map((tr)=> {
         return tr.kwota;
      });
-     return tablicaKwotPrzychodow;
- }
- Budzet.prototype.tablicaWartosciWydatkow = function() {
-    let tablicaTransakcji = [...this.transakcje.values() ];
-    let tablicaWydatkow = tablicaTransakcji.filter((element)=>{
-       return element.czyPlus === false;
+     let tablicaKwotWydatkow = tablicaWydatkow.map((tr)=> {
+        return tr.kwota;
+     });
+
+    let maxEl = Math.max(...tablicaKwotPrzychodow, ...tablicaKwotWydatkow);
+    let SkalowanaTablicaKwotPrzychodow = tablicaKwotPrzychodow.map((n)=>{
+    return (100*n/maxEl).toFixed(1);
     });
-    let tablicaKwotWydatkow = tablicaWydatkow.map((tr)=> {
-       return tr.kwota;
+    let SkalowanaTablicaKwotWydatkow = tablicaKwotWydatkow.map((n)=>{
+        return (100*n/maxEl).toFixed(1);
     });
-    return tablicaKwotWydatkow;
+    return {
+        przychody: tablicaKwotPrzychodow,
+        wydatki: tablicaKwotWydatkow,
+        przychodySkalowane: SkalowanaTablicaKwotPrzychodow,
+        wydatkiSkalowane: SkalowanaTablicaKwotWydatkow
+    }
 }
  // ------------------------------------------------------------
 
@@ -241,8 +250,12 @@ tworzWykres([1,2,2,3,3,3,3,3,3,3,3,3,3,3], ".wykres-wydatki"); */
          document.getElementById('wydatki-ul').appendChild(li);
      }
      budzet.dodajTransakcje(this);
-     tworzWykres(budzet.tablicaWartosciPrzychodow(), ".wykres-przychody");
-     tworzWykres(budzet.tablicaWartosciWydatkow(), ".wykres-wydatki");
+     //wykres
+     {
+     let kwotyTransakcji = budzet.wartosciTransakcji();
+     tworzWykres(".wykres-przychody", kwotyTransakcji.przychodySkalowane, kwotyTransakcji.przychody);
+     tworzWykres(".wykres-wydatki", kwotyTransakcji.wydatkiSkalowane, kwotyTransakcji.wydatki);
+     }
 
 
      li.addEventListener("mouseover", function () {
@@ -255,8 +268,13 @@ tworzWykres([1,2,2,3,3,3,3,3,3,3,3,3,3,3], ".wykres-wydatki"); */
         budzet.usunTransakcje(this);
         li.remove();
         inputOpis.focus();
-        tworzWykres(budzet.tablicaWartosciPrzychodow(), ".wykres-przychody");
-        tworzWykres(budzet.tablicaWartosciWydatkow(), ".wykres-wydatki");
+        //wykres
+        {
+            // wartosciTransakcji() zwraca obiekt z czterema polami
+            let kwotyTransakcji = budzet.wartosciTransakcji();
+            tworzWykres(".wykres-przychody", kwotyTransakcji.przychodySkalowane, kwotyTransakcji.przychody);
+            tworzWykres(".wykres-wydatki", kwotyTransakcji.wydatkiSkalowane, kwotyTransakcji.wydatki);
+        }
      });
  }
 
