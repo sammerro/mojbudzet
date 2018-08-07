@@ -65,8 +65,9 @@ const tworzWykres = (element, dane, etykiety) => {
     .data(dane)
       .enter()
       .append("div")
-      .style("height", function(d) { return d + "%"; })
-/*       .text(function(d, i) { return  formatWaluta(etykiety[i]) ; }); */
+      .style("height", function(d) { return d + "%"; }).
+      append("p")
+      .text(function(d, i) { return  formatWaluta(etykiety[i]) ; });
 };
 
 /* tworzWykres([12,34,45,65], ".wykres-przychody");
