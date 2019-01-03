@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Mój Budżet</title>
+    <title> Your Budget</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500,500i,700&amp;subset=latin-ext" rel="stylesheet">
@@ -17,17 +17,17 @@
         <div class="header__container">
 
             <div class="kwota plus">
-                <span class="kwota__caption">Przychody:</span>
+                <span class="kwota__caption">Incomings:</span>
                     <p id="sumaPrzychodow">---</p>
                 </div>
 
          <div class="header__textbox">
-            <h2>Bilans: </h2>
-            <h1 id="bilans" class="header__title"> --- </h1>
+            <h1>Balance: </h1>
+            <h2 id="bilans" class="header__title"> --- </h2>
          </div>
 
             <div class="kwota minus">
-                <span class="kwota__caption">Wydatki:</span>
+                <span class="kwota__caption">Expenses:</span>
                     <p id="sumaWydatkow">---</p>
             </div>   
         </div>
@@ -56,8 +56,8 @@
                     <p tabindex="-1">-</p>
                 </button>
             </div>
-            <input class="wprowadzanie-opis" type="text" placeholder="opis transakcji" tabindex="1">
-            <input class="wprowadzanie-kwota" type="number" placeholder="kwota" step="0.01" tabindex="2">
+            <input class="wprowadzanie-opis" type="text" placeholder="description" tabindex="1">
+            <input class="wprowadzanie-kwota" type="number" placeholder="amount of money" step="0.01" tabindex="2">
 
         </div>
 
@@ -66,7 +66,7 @@
     <section class="section-dol">
         <div class="tabela-flex">
             <article class="tabela przychody">
-                <p class="tabela-title przychody">Przychody</p>
+                <p class="tabela-title przychody">Incomings</p>
 
                 <ul id="przychody-ul">
                     
@@ -74,7 +74,7 @@
             </article>
 
             <article class="tabela wydatki">
-                <p class="tabela-title wydatki">Wydatki</p>
+                <p class="tabela-title wydatki">Expenses</p>
                 <ul id="wydatki-ul">
 
                 </ul>

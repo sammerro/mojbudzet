@@ -1,11 +1,9 @@
 "use strict";
 
-/*%%%%%%%%%%%%%%%%%%%%%%% Funkcje pomocnicze %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*%%%%%%%%%%%%%%%%%%%%%%% Helpers %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
 
-//do wykresu
-//dla danych do wykresu skalowanie - liczby zamieniam na procenty
-//względem największej wartosci w tablicy ktora ma zawsze 100%
+// for plots
 const skalujProcentowo = (arr) => {
     let max = Math.max( ...arr );
     let newArr = arr.map((n)=>{
