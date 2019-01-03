@@ -396,8 +396,9 @@ li {
 
 .lista-span-delete {
     font-size: 1rem;
-    display: flex;
+    text-align: center;
     height: 3rem;
+    line-height: 3rem;
     width: 3rem;
     cursor: pointer;
     border: 1px solid rgb(138, 138, 138);
@@ -410,9 +411,10 @@ li {
 }
 @media (max-width: 500px) {
     .lista-span-delete {
-        height: 2.5rem;
-        width: 2.5rem;
-        font-size: 1.2rem;
+        height: 4rem;
+        width: 4rem;
+        line-height: 4rem;
+        font-size: 1rem;
     }
 }
 .lista-span-delete:hover {

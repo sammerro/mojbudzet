@@ -15,11 +15,14 @@ const skalujProcentowo = (arr) => {
 const zaokraglenie = (x) => parseFloat(x.toFixed(2));
 
 // Format na polskie złotowki
-const formatWaluta = (x, waluta='zł') => {
+const currencyFormat = (x, waluta='€', symbolAtBeginning = true) => {
     x = zaokraglenie(x);
     let calkowita = Math.floor(x);
     let dziesietna = (x - calkowita).toFixed(2);
     dziesietna = dziesietna.slice(2);
+    if (symbolAtBeginning) {
+        return `${waluta}\xa0${calkowita},${dziesietna}`;
+    }
     return `${calkowita},${dziesietna}\xa0${waluta}`;
 }
 //walidacja inputow
@@ -65,7 +68,7 @@ const tworzWykres = (element, dane, etykiety) => {
       .append("div")
       .style("height", function(d) { return d + "%"; }).
       append("p")
-      .text(function(d, i) { return  formatWaluta(etykiety[i]) ; });
+      .text(function(d, i) { return  currencyFormat(etykiety[i]) ; });
 };
 
 /* tworzWykres([12,34,45,65], ".wykres-przychody");
@@ -155,9 +158,9 @@ tworzWykres([1,2,2,3,3,3,3,3,3,3,3,3,3,3], ".wykres-wydatki"); */
     }
 
      this.bilans = this.calyPrzychod - this.calyWydatek;
-     divPrzychod.innerHTML = formatWaluta(this.calyPrzychod);
-     h1Bilans.innerHTML = formatWaluta(this.bilans);
-     divWydatki.innerHTML = formatWaluta(this.calyWydatek);
+     divPrzychod.innerHTML = currencyFormat(this.calyPrzychod);
+     h1Bilans.innerHTML = currencyFormat(this.bilans);
+     divWydatki.innerHTML = currencyFormat(this.calyWydatek);
 
  }
 
@@ -172,9 +175,9 @@ tworzWykres([1,2,2,3,3,3,3,3,3,3,3,3,3,3], ".wykres-wydatki"); */
         this.calyWydatek = this.calyWydatek - kwota;
     }
      this.bilans = this.calyPrzychod - this.calyWydatek;
-     divPrzychod.innerHTML = formatWaluta(this.calyPrzychod);
-     h1Bilans.innerHTML = formatWaluta(this.bilans);
-     divWydatki.innerHTML = formatWaluta(this.calyWydatek);
+     divPrzychod.innerHTML = currencyFormat(this.calyPrzychod);
+     h1Bilans.innerHTML = currencyFormat(this.bilans);
+     divWydatki.innerHTML = currencyFormat(this.calyWydatek);
 
  }
  //dla wykresow 
@@ -231,8 +234,8 @@ Budzet.prototype.wartosciTransakcji = function() {
      li.classList.add('id-' + this.id);
 
      opis.textContent = this.opis;
-     kwota.textContent = formatWaluta(this.kwota);
-     deleteBtn.innerHTML = '<p>&#x274C</p>';
+     kwota.textContent = currencyFormat(this.kwota);
+     deleteBtn.innerHTML = '&#x274C';
 
 
      opis.classList.add("lista-span-opis");
