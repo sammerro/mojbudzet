@@ -32,17 +32,17 @@ const currencyFormat = (x, waluta='€', symbolAtBeginning = true) => {
     inputKwota.classList.remove('zle-dane');
 
     if (kwota === '') {
-        komunikat = komunikat.concat("Nie podano kwoty lub podana kwota jest nieprawidłowo zapisana.\n");
+        komunikat = komunikat.concat("Amount not indicated or incorrectly recorded.\n");
         inputKwota.classList.add('zle-dane');
         inputKwota.focus();
     }
     if (kwota < 0 ) {
-        komunikat = komunikat.concat("Kwota musi być dodatnia.\n");
+        komunikat = komunikat.concat("Amount must be positive\n");
         inputKwota.classList.add('zle-dane');
         inputKwota.focus();
     }
     if ( opis === '') {
-        komunikat = komunikat.concat("Opis nie może być pusty.\n");
+        komunikat = komunikat.concat("Description can not be empty\n");
         inputOpis.classList.add('zle-dane');
         inputOpis.focus();
     }
