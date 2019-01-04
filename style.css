@@ -41,8 +41,7 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-/*     margin: 2rem; */
+    font-family: Montserrat , sans-serif;
     cursor: default;
    background-color: rgb(235, 235, 235);
 }
@@ -123,8 +122,12 @@ body {
 
 .header__textbox h2, .header__textbox h1 {
     font-weight: 500;
-    text-shadow: -2px 0 rgb(49, 49, 49), 0 2px rgb(49, 49, 49),
-     2px 0 rgb(49, 49, 49), 0 -2px rgb(49, 49, 49);
+text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+}
+.header__textbox h2 {
+text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.527),
+text-shadow: -1px -2px 2px rgba(0, 0, 0, 0.527);
+font-size: 5rem;
 }
 
 /* Wykresy */
@@ -369,17 +372,15 @@ li {
     display: flex;
     list-style-type: none;
     border-bottom: 1px solid gray;
-    justify-content: start ;
+    justify-content: start;
     height: 4rem;
-    align-items: center;
+    align-items: flex-end;
     text-align:left;
     min-height: fit-content;
     font-weight: 400;
+    padding: .1em;
 }
 
-.lista-span-kwota {
-
-}
 
 /* .lista-span-kwota::after {
     content: ' zł';
@@ -395,30 +396,26 @@ li {
 }
 
 .lista-span-delete {
-    font-size: 1rem;
-    text-align: center;
-    height: 3rem;
-    line-height: 3rem;
-    width: 3rem;
+    flex: 0 0 auto;
+    font-weight: 200;
+    font-size: inherit;
     cursor: pointer;
-    border: 1px solid rgb(138, 138, 138);
-    color: /* rgb(34, 34, 34); */ rgb(255, 255, 255);
-    opacity: 0;
-    background-image: radial-gradient(rgba(255, 0, 0, 0.493),rgba(255, 0, 0, 0.493));
+    color: rgb(100, 100, 100);
     border-radius: 100px;
+    opacity: 0;
     transition: opacity .1s ease-in,
     background-color .1s ease-in;
 }
 @media (max-width: 500px) {
     .lista-span-delete {
-        height: 4rem;
-        width: 4rem;
-        line-height: 4rem;
-        font-size: 1rem;
+        opacity: 1;
     }
 }
 .lista-span-delete:hover {
-    background-color: rgba(0, 0, 0, 0.842);
+    color: #3a3a3a;
+}
+.lista-span-delete:active {
+    color: #000000;
 }
 .lista-span-delete p {
     margin: auto;
