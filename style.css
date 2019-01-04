@@ -113,11 +113,17 @@ body {
 .header__textbox {
     color: white;
     font-size: 2rem;
+    padding: 1rem;
+    border-radius: .2rem;
 /*     padding: 2rem;
     margin: 0 2rem;
     border-radius: .2rem;
     border: .2rem solid white; */
     flex: 0 0 30%;
+    transition: all .5s ease-out;
+}
+.header__textbox:hover {
+    background-color: rgba(0, 0, 0, 0.267);
 }
 
 .header__textbox h2, .header__textbox h1 {
@@ -126,7 +132,7 @@ text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
 }
 .header__textbox h2 {
 text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.527),
-text-shadow: -1px -2px 2px rgba(0, 0, 0, 0.527);
+-1px -2px 2px rgba(0, 0, 0, 0.527);
 font-size: 5rem;
 }
 
