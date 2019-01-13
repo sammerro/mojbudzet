@@ -120,7 +120,7 @@ body {
     border-radius: .2rem;
     border: .2rem solid white; */
     flex: 0 0 30%;
-    transition: all .5s ease-out;
+    transition: all .5s ease-in;
 }
 .header__textbox:hover {
     background-color: rgba(0, 0, 0, 0.267);
@@ -187,6 +187,7 @@ font-size: 5rem;
     text-orientation: mixed; */
     margin: 0 .4rem;
     flex: 0 1 10%;
+    animation: expand 1s;
   }
   @media (max-width: 600px) {
     .wykres div {
@@ -431,4 +432,15 @@ li {
 
 .aktywny {
     opacity: 1;
+}
+
+@keyframes expand {
+    0% {
+        opacity: 0;
+        height: 10%;
+    }
+
+    70% {
+        opacity: 1
+    }
 }

@@ -66,8 +66,8 @@ const tworzWykres = (element, dane, etykiety) => {
     .data(dane)
       .enter()
       .append("div")
-      .style("height", function(d) { return d + "%"; }).
-      append("p")
+      .style("height", function(d) { return d + "%"; })
+      .append("p")
       .text(function(d, i) { return  currencyFormat(etykiety[i]) ; });
 };
 
