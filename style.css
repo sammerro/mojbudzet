@@ -249,6 +249,7 @@ padding: 2rem 0;
 .wprowadzanie-opis:link {
     outline: var(--color-outline);
     order: 0;
+    font-family: inherit;
     font-size: 2rem;
     width: 60%;
     padding: 1rem 2rem;  
@@ -265,6 +266,7 @@ padding: 2rem 0;
     display: block;
     background-color: rgb(255, 255, 255);
     font-size: 2rem;
+    font-family: inherit;
     padding: 1rem 2rem;
     color: rgb(1, 0, 66);
     width: 30%;
