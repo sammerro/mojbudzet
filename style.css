@@ -187,7 +187,7 @@ font-size: 5rem;
     text-orientation: mixed; */
     margin: 0 .4rem;
     flex: 0 1 10%;
-    animation: expand 1s;
+    animation: expand .6s;
   }
   @media (max-width: 600px) {
     .wykres div {
@@ -214,7 +214,7 @@ font-size: 5rem;
       background-color: rgb(82, 82, 82);
       z-index: 10;
       opacity:0;
-      transition: all .1s ease-out;
+      transition: all .1s ease-in;
   }
 
   .wykres div:hover p {
@@ -437,10 +437,19 @@ li {
 @keyframes expand {
     0% {
         opacity: 0;
-        height: 10%;
+        height: 0%;
     }
 
-    70% {
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0 
+    }
+    100% {
         opacity: 1
     }
 }
